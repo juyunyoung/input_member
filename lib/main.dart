@@ -11,59 +11,109 @@ class MemberInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Input member info',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MemberInfoInput(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-
-  final String title;
+class MemberInfoInput extends StatefulWidget {
+  const MemberInfoInput({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MemberInfoInput> createState() => _MemberInfoInputState();
+}
+class ShowMemberInfo extends StatefulWidget {
+  const ShowMemberInfo({super.key});
+
+  @override
+  State<ShowMemberInfo> createState() => _ShowMemberInfoState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
+class _MemberInfoInputState extends State<MemberInfoInput> {
+  String name = "0";
+  String age = "0";
+  String address = "0";
+  String gender = "0";
 
-      _counter++;
-    });
+
+  void _submitInfo() {
+    //input data save
+    //and nextPage move
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ShowMemberInfo()),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text('Please input your info'),
+      ),
+      body: Center(
+        child: Row(
+          children: Container[
+            const Text(
+              'input name',
+            ),
+          const Text(
+            'input age',
+          ),
+
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _submitInfo,
+        tooltip: 'input info',
+        child: const Icon(Icons.save),
+      ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+class _ShowMemberInfoState extends State<ShowMemberInfo> {
+  String name = "0";
+  String age = "0";
+  String address = "0";
+  String gender = "0";
+
+
+  void _backPage() {
+    //get data show input data
+    //and beforePage move
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => MemberInfoInput()),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Your input info'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          children: [
             const Text(
-              'You have pushed the button this many times:',
+              'Plese input next field',
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+        onPressed: _backPage,
+        tooltip: 'back page',
+        child: const Icon(Icons.arrow_back),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
