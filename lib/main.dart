@@ -50,23 +50,34 @@ class _MemberInfoInputState extends State<MemberInfoInput> {
     );
   }
 
+  Widget nameSection = const Padding(
+    padding: EdgeInsets.all(32),
+    child:Center(
+     children:[
+     Text(
+       'input name',
+       softWrap: true,
+     ),
+       Text(
+         'input name',
+         softWrap: true,
+       ),
+        ],
+  ),
+  );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Please input your info'),
       ),
-      body: Center(
-        child: Row(
-          children: Container[
-            const Text(
-              'input name',
-            ),
-          const Text(
-            'input age',
-          ),
-
-        ),
+      body: ListView(
+        children: [
+          nameSection,
+          ageSection,
+          addressSection,
+          genderSection,
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _submitInfo,
@@ -75,6 +86,31 @@ class _MemberInfoInputState extends State<MemberInfoInput> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+    ),
+
+  Widget ageSection = const Padding(
+    padding: EdgeInsets.all(32),
+    child: Text(
+      'input age',
+      softWrap: true,
+    ),
+  );
+
+  Widget addressSection = const Padding(
+    padding: EdgeInsets.all(32),
+    child: Text(
+      'input address',
+      softWrap: true,
+    ),
+  );
+
+  Widget genderSection = const Padding(
+    padding: EdgeInsets.all(32),
+    child: Text(
+      'input gender',
+      softWrap: true,
+    ),
+  );
 }
 
 class _ShowMemberInfoState extends State<ShowMemberInfo> {
@@ -99,16 +135,13 @@ class _ShowMemberInfoState extends State<ShowMemberInfo> {
       appBar: AppBar(
         title: Text('Your input info'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text(
-              'Plese input next field',
-            ),
-
-          ],
-        ),
+      body: ListView(
+      children: [
+      nameSection,
+    ageSection,
+    addressSection,
+    genderSection,
+    ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _backPage,
@@ -117,4 +150,36 @@ class _ShowMemberInfoState extends State<ShowMemberInfo> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+
+  Widget nameSection = const Padding(
+    padding: EdgeInsets.all(32),
+    child: Text(
+      'input name',
+      softWrap: true,
+    ),
+  );
+
+  Widget ageSection = const Padding(
+    padding: EdgeInsets.all(32),
+    child: Text(
+      'input age',
+      softWrap: true,
+    ),
+  );
+
+  Widget addressSection = const Padding(
+    padding: EdgeInsets.all(32),
+    child: Text(
+      'input address',
+      softWrap: true,
+    ),
+  );
+
+  Widget genderSection = const Padding(
+    padding: EdgeInsets.all(32),
+    child: Text(
+      'input gender',
+      softWrap: true,
+    ),
+  );
 }
