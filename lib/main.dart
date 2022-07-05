@@ -26,6 +26,7 @@ class MemberInfoInput extends StatefulWidget {
   @override
   State<MemberInfoInput> createState() => _MemberInfoInputState();
 }
+
 class ShowMemberInfo extends StatefulWidget {
   const ShowMemberInfo({super.key});
 
@@ -50,22 +51,23 @@ class _MemberInfoInputState extends State<MemberInfoInput> {
     );
   }
 
-  Widget nameSection =  Container(
+  Widget nameSection = Container(
     padding: EdgeInsets.all(32),
-    child:Column(
+    child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-     children:[
-     Text(
-       'NAME:',
-       softWrap: true,
-     ),
-       Text(
-         'input name',
-         softWrap: true,
-       ),
-        ],
-  ),
+      children: [
+        Text(
+          'NAME:',
+          softWrap: true,
+        ),
+        Text(
+          'input name',
+          softWrap: true,
+        ),
+      ],
+    ),
   );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -89,60 +91,85 @@ class _MemberInfoInputState extends State<MemberInfoInput> {
   }
 
 
-  Widget ageSection = const Padding(
+  Widget ageSection = Container(
     padding: EdgeInsets.all(32),
-    child: Text(
-      'input age',
-      softWrap: true,
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'AGE:',
+          softWrap: true,
+        ),
+        Text(
+          'input name',
+          softWrap: true,
+        ),
+      ],
     ),
   );
 
-  Widget addressSection = const Padding(
+  Widget addressSection = Container(
     padding: EdgeInsets.all(32),
-    child: Text(
-      'input address',
-      softWrap: true,
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'ADDRESS:',
+          softWrap: true,
+        ),
+        Text(
+          'input name',
+          softWrap: true,
+        ),
+      ],
     ),
   );
 
-  Widget genderSection = const Padding(
+  Widget genderSection = Container(
     padding: EdgeInsets.all(32),
-    child: Text(
-      'input gender',
-      softWrap: true,
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'GENDER:',
+          softWrap: true,
+        ),
+        Text(
+          'input name',
+          softWrap: true,
+        ),
+      ],
     ),
   );
 }
-
 class _ShowMemberInfoState extends State<ShowMemberInfo> {
-  String name = "0";
-  String age = "0";
-  String address = "0";
-  String gender = "0";
+    String name = "0";
+    String age = "0";
+    String address = "0";
+    String gender = "0";
 
-
-  void _backPage() {
+    void _backPage() {
     //get data show input data
     //and beforePage move
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => MemberInfoInput()),
-    );
-  }
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => MemberInfoInput()),
+      );
+    }
 
-  @override
-  Widget build(BuildContext context) {
+    @override
+    Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Your input info'),
+       title: Text('Your input info'),
       ),
       body: ListView(
-      children: [
-      nameSection,
-      ageSection,
-      addressSection,
-      genderSection,
-    ],
+        children: [
+          nameSection,
+          ageSection,
+          addressSection,
+          genderSection,
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _backPage,
@@ -150,37 +177,73 @@ class _ShowMemberInfoState extends State<ShowMemberInfo> {
         child: const Icon(Icons.arrow_back),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
-  }
+    }
 
-  Widget nameSection = const Padding(
-    padding: EdgeInsets.all(32),
-    child: Text(
-      'input name',
-      softWrap: true,
-    ),
-  );
+    Widget nameSection = Container(
+      padding: EdgeInsets.all(32),
+      child:Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children:[
+          Text(
+            'AGE:',
+            softWrap: true,
+          ),
+          Text(
+            'input name',
+            softWrap: true,
+          ),
+        ],
+      ),
+    );
 
-  Widget ageSection = const Padding(
-    padding: EdgeInsets.all(32),
-    child: Text(
-      'input age',
-      softWrap: true,
-    ),
-  );
+    Widget ageSection = Container(
+      padding: EdgeInsets.all(32),
+      child:Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children:[
+          Text(
+            'AGE:',
+            softWrap: true,
+          ),
+          Text(
+            'input name',
+            softWrap: true,
+          ),
+        ],
+      ),
+    );
 
-  Widget addressSection = const Padding(
-    padding: EdgeInsets.all(32),
-    child: Text(
-      'input address',
-      softWrap: true,
-    ),
-  );
+    Widget addressSection = Container(
+      padding: EdgeInsets.all(32),
+      child:Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children:[
+          Text(
+            'AGE:',
+            softWrap: true,
+          ),
+          Text(
+            'input name',
+            softWrap: true,
+          ),
+        ],
+      ),
+    );
 
-  Widget genderSection = const Padding(
-    padding: EdgeInsets.all(32),
-    child: Text(
-      'input gender',
-      softWrap: true,
-    ),
-  );
+    Widget genderSection = Container(
+      padding: EdgeInsets.all(32),
+      child:Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children:[
+          Text(
+            'AGE:',
+            softWrap: true,
+          ),
+          Text(
+            'input name',
+            softWrap: true,
+          ),
+        ],
+      ),
+    );
 }
