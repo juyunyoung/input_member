@@ -50,12 +50,13 @@ class _MemberInfoInputState extends State<MemberInfoInput> {
     );
   }
 
-  Widget nameSection = const Padding(
+  Widget nameSection =  Container(
     padding: EdgeInsets.all(32),
-    child:Center(
+    child:Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
      children:[
      Text(
-       'input name',
+       'NAME:',
        softWrap: true,
      ),
        Text(
@@ -86,7 +87,7 @@ class _MemberInfoInputState extends State<MemberInfoInput> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
-    ),
+
 
   Widget ageSection = const Padding(
     padding: EdgeInsets.all(32),
@@ -138,9 +139,9 @@ class _ShowMemberInfoState extends State<ShowMemberInfo> {
       body: ListView(
       children: [
       nameSection,
-    ageSection,
-    addressSection,
-    genderSection,
+      ageSection,
+      addressSection,
+      genderSection,
     ],
       ),
       floatingActionButton: FloatingActionButton(
