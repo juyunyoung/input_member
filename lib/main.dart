@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
-
+class MemberInfoTo{
+  String name = "";
+  String addr = "";
+  String age = "";
+  String gender = "";
+  MemberInfoTo(this.name, this.addr, this.age, this.gender);
+}
 
 void main() {
   runApp(const MemberInfo());
@@ -31,26 +37,40 @@ class MemberInfoInput extends StatefulWidget {
 }
 
 class ShowMemberInfo extends StatefulWidget {
-  const ShowMemberInfo({super.key});
+  MemberInfoTo membTo;
+  ShowMemberInfo({super.key, required this.membTo});
 
   @override
-  State<ShowMemberInfo> createState() => _ShowMemberInfoState();
+  State<ShowMemberInfo> createState() => _ShowMemberInfoState(membTo:membTo);
 }
 
 
 class _MemberInfoInputState extends State<MemberInfoInput> {
-  String name = "0";
-  String age = "0";
-  String address = "0";
-  String gender = "0";
 
+  static  TextEditingController myNameController =  TextEditingController();
+  static  TextEditingController myAgeController = TextEditingController();
+  static  TextEditingController myAddressController = TextEditingController();
+  static  TextEditingController myGenderController = TextEditingController();
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    myNameController.dispose();
+    myAgeController.dispose();
+    myAddressController.dispose();
+    myGenderController.dispose();
+    super.dispose();
+  }
 
   void _submitInfo() {
-    //input data save
-    //and nextPage move
+    name = myNameController.text;
+    age = myAgeController.text;
+    address = myAddressController.text;
+    gender = myGenderController.text;
+    final membTo =  MemberInfoTo(name,address,age,gender);
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => ShowMemberInfo()),
+      MaterialPageRoute(builder: (context) => ShowMemberInfo(membTo:membTo)),
     );
   }
 
@@ -84,13 +104,9 @@ class _MemberInfoInputState extends State<MemberInfoInput> {
       children: [
         Text(
           'NAME:',
-          softWrap: true,
         ),
         TextField(
-          decoration: const InputDecoration(
-            filled: true,
-            labelText:'input your name',
-          ),
+          controller: myNameController,
         ),
       ],
     ),
@@ -103,13 +119,9 @@ class _MemberInfoInputState extends State<MemberInfoInput> {
       children: [
         Text(
           'AGE:',
-          softWrap: true,
         ),
         TextField(
-          decoration: const InputDecoration(
-            filled: true,
-            labelText:'input your age',
-          ),
+          controller: myAgeController
         ),
       ],
     ),
@@ -122,13 +134,9 @@ class _MemberInfoInputState extends State<MemberInfoInput> {
       children: [
         Text(
           'ADDRESS:',
-          softWrap: true,
         ),
         TextField(
-          decoration: const InputDecoration(
-            filled: true,
-            labelText:'input your address',
-          ),
+          controller: myAddressController,
         ),
       ],
     ),
@@ -141,23 +149,22 @@ class _MemberInfoInputState extends State<MemberInfoInput> {
       children: [
         Text(
           'GENDER:',
-          softWrap: true,
         ),
         TextField(
-          decoration: const InputDecoration(
-            filled: true,
-            labelText:'input your gender',
-          ),
+          controller: myGenderController,
         ),
       ],
     ),
   );
 }
 class _ShowMemberInfoState extends State<ShowMemberInfo> {
-    String name = "0";
-    String age = "0";
-    String address = "0";
-    String gender = "0";
+  String name = "0";
+  String age = "0";
+  String address = "0";
+  String gender = "0";
+
+     MemberInfoTo membTo;
+    _ShowMemberInfoState({ required this.membTo}) ;
 
     void _backPage() {
     //get data show input data
@@ -197,11 +204,9 @@ class _ShowMemberInfoState extends State<ShowMemberInfo> {
         children:[
           Text(
             'AGE:',
-            softWrap: true,
           ),
           Text(
-            'input name',
-            softWrap: true,
+            membTo.age ==null ? "": membTo.age,
           ),
         ],
       ),
@@ -214,11 +219,9 @@ class _ShowMemberInfoState extends State<ShowMemberInfo> {
         children:[
           Text(
             'AGE:',
-            softWrap: true,
           ),
           Text(
             'input name',
-            softWrap: true,
           ),
         ],
       ),
@@ -231,11 +234,9 @@ class _ShowMemberInfoState extends State<ShowMemberInfo> {
         children:[
           Text(
             'AGE:',
-            softWrap: true,
           ),
           Text(
             'input name',
-            softWrap: true,
           ),
         ],
       ),
@@ -248,11 +249,9 @@ class _ShowMemberInfoState extends State<ShowMemberInfo> {
         children:[
           Text(
             'AGE:',
-            softWrap: true,
           ),
           Text(
             'input name',
-            softWrap: true,
           ),
         ],
       ),
