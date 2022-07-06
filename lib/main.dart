@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
+
+
 void main() {
   runApp(const MemberInfo());
 }
+
 
 class MemberInfo extends StatelessWidget {
   const MemberInfo({super.key});
@@ -51,22 +54,6 @@ class _MemberInfoInputState extends State<MemberInfoInput> {
     );
   }
 
-  Widget nameSection = Container(
-    padding: EdgeInsets.all(32),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'NAME:',
-          softWrap: true,
-        ),
-        Text(
-          'input name',
-          softWrap: true,
-        ),
-      ],
-    ),
-  );
 
   @override
   Widget build(BuildContext context) {
@@ -90,6 +77,24 @@ class _MemberInfoInputState extends State<MemberInfoInput> {
     );
   }
 
+  Widget nameSection = Container(
+    padding: EdgeInsets.all(32),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'NAME:',
+          softWrap: true,
+        ),
+        TextField(
+          decoration: const InputDecoration(
+            filled: true,
+            labelText:'input your name',
+          ),
+        ),
+      ],
+    ),
+  );
 
   Widget ageSection = Container(
     padding: EdgeInsets.all(32),
@@ -100,9 +105,11 @@ class _MemberInfoInputState extends State<MemberInfoInput> {
           'AGE:',
           softWrap: true,
         ),
-        Text(
-          'input name',
-          softWrap: true,
+        TextField(
+          decoration: const InputDecoration(
+            filled: true,
+            labelText:'input your age',
+          ),
         ),
       ],
     ),
@@ -117,9 +124,11 @@ class _MemberInfoInputState extends State<MemberInfoInput> {
           'ADDRESS:',
           softWrap: true,
         ),
-        Text(
-          'input name',
-          softWrap: true,
+        TextField(
+          decoration: const InputDecoration(
+            filled: true,
+            labelText:'input your address',
+          ),
         ),
       ],
     ),
@@ -134,9 +143,11 @@ class _MemberInfoInputState extends State<MemberInfoInput> {
           'GENDER:',
           softWrap: true,
         ),
-        Text(
-          'input name',
-          softWrap: true,
+        TextField(
+          decoration: const InputDecoration(
+            filled: true,
+            labelText:'input your gender',
+          ),
         ),
       ],
     ),
