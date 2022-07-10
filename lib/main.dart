@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class MemberInfoTo{
-  String name = "";
-  String addr = "";
+class  MemberInfoTo{
+  String name = "" ;
+  String addr = "" ;
   String age = "";
   String gender = "";
-  MemberInfoTo(this.name, this.addr, this.age, this.gender);
+
 }
 
 void main() {
@@ -63,14 +63,15 @@ class _MemberInfoInputState extends State<MemberInfoInput> {
   }
 
   void _submitInfo() {
-    name = myNameController.text;
-    age = myAgeController.text;
-    address = myAddressController.text;
-    gender = myGenderController.text;
-    final membTo =  MemberInfoTo(name,address,age,gender);
+    final MemberInfoTo memberto =  new MemberInfoTo();
+    memberto.name = myNameController.text;
+    memberto.age = myAgeController.text;
+    memberto.addr = myAddressController.text;
+    memberto.gender = myGenderController.text;
+
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => ShowMemberInfo(membTo:membTo)),
+      MaterialPageRoute(builder: (context) => ShowMemberInfo(membTo:memberto)),
     );
   }
 
@@ -158,17 +159,11 @@ class _MemberInfoInputState extends State<MemberInfoInput> {
   );
 }
 class _ShowMemberInfoState extends State<ShowMemberInfo> {
-  String name = "0";
-  String age = "0";
-  String address = "0";
-  String gender = "0";
 
-     MemberInfoTo membTo;
-    _ShowMemberInfoState({ required this.membTo}) ;
+  final MemberInfoTo membTo;
+  _ShowMemberInfoState({ required this.membTo}) ;
 
     void _backPage() {
-    //get data show input data
-    //and beforePage move
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => MemberInfoInput()),
@@ -206,7 +201,7 @@ class _ShowMemberInfoState extends State<ShowMemberInfo> {
             'AGE:',
           ),
           Text(
-            membTo.age ==null ? "": membTo.age,
+            membTo.name,
           ),
         ],
       ),
