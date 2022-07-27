@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 
 class  MemberInfoTo{
   String name = "" ;
@@ -34,14 +35,6 @@ class MemberInfoInput extends StatefulWidget {
 
   @override
   State<MemberInfoInput> createState() => _MemberInfoInputState();
-}
-
-class ShowMemberInfo extends StatefulWidget {
-  MemberInfoTo membTo;
-  ShowMemberInfo({super.key, required this.membTo});
-
-  @override
-  State<ShowMemberInfo> createState() => _ShowMemberInfoState(membTo:membTo);
 }
 
 
@@ -158,10 +151,18 @@ class _MemberInfoInputState extends State<MemberInfoInput> {
     ),
   );
 }
-class _ShowMemberInfoState extends State<ShowMemberInfo> {
 
+class ShowMemberInfo extends StatefulWidget {
   final MemberInfoTo membTo;
-  _ShowMemberInfoState({ required this.membTo}) ;
+  ShowMemberInfo({super.key, required this.membTo});
+
+  @override
+  State<ShowMemberInfo> createState() => _ShowMemberInfoState();
+}
+
+
+class _ShowMemberInfoState extends State<ShowMemberInfo> {
+  _ShowMemberInfoState() ;
 
     void _backPage() {
       Navigator.push(
@@ -178,10 +179,62 @@ class _ShowMemberInfoState extends State<ShowMemberInfo> {
       ),
       body: ListView(
         children: [
-          nameSection,
-          ageSection,
-          addressSection,
-          genderSection,
+          Container(
+            padding: EdgeInsets.all(32),
+            child:Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children:[
+                Text(
+                  'Name:',
+                ),
+                Text(
+                  widget.membTo.name,
+                ),
+              ],
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.all(32),
+            child:Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children:[
+                Text(
+                  'AGE:',
+                ),
+                Text(
+                  widget.membTo.age,
+                ),
+              ],
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.all(32),
+            child:Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children:[
+                Text(
+                  'Address:',
+                ),
+                Text(
+                  widget.membTo.addr,
+                ),
+              ],
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.all(32),
+            child:Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children:[
+                Text(
+                  'Gender:',
+                ),
+                Text(
+                  widget.membTo.gender,
+                ),
+              ],
+            ),
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -192,63 +245,5 @@ class _ShowMemberInfoState extends State<ShowMemberInfo> {
     );
     }
 
-    Widget nameSection = Container(
-      padding: EdgeInsets.all(32),
-      child:Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children:[
-          Text(
-            'AGE:',
-          ),
-          Text(
-            membTo.name,
-          ),
-        ],
-      ),
-    );
 
-    Widget ageSection = Container(
-      padding: EdgeInsets.all(32),
-      child:Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children:[
-          Text(
-            'AGE:',
-          ),
-          Text(
-            'input name',
-          ),
-        ],
-      ),
-    );
-
-    Widget addressSection = Container(
-      padding: EdgeInsets.all(32),
-      child:Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children:[
-          Text(
-            'AGE:',
-          ),
-          Text(
-            'input name',
-          ),
-        ],
-      ),
-    );
-
-    Widget genderSection = Container(
-      padding: EdgeInsets.all(32),
-      child:Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children:[
-          Text(
-            'AGE:',
-          ),
-          Text(
-            'input name',
-          ),
-        ],
-      ),
-    );
 }
