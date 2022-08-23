@@ -30,39 +30,20 @@ class _HomeViewState extends State<HomeView> {
       appBar: AppBar(
         title: const Text('Member Info'),
       ),
-      body: ListView(
-        children: [
+      body:
           Container(
             padding: EdgeInsets.all(32),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Average age:',
-                ),
-                Text(
-                  'ffff',
-                ),
-              ],
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.all(32),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Male / Female',
-                ),
-                Text(
-                  'ssssss',
+                  'Welcome \n This is Flutter test APP ',
+
                 ),
               ],
             ),
           ),
 
-        ],
-      ),
       bottomNavigationBar: BottomAppBar(
         color: Colors.pink,
         // this creates a notch in the center of the bottom bar
@@ -96,7 +77,7 @@ class _HomeViewState extends State<HomeView> {
       floatingActionButton: FloatingActionButton(
           onPressed: _inputPage,
           backgroundColor: Colors.amber,
-          child: const Icon(Icons.add)),
+          child: const Icon(Icons.account_circle)),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }

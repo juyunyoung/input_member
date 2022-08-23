@@ -95,7 +95,7 @@ class _ShowMemberInfoState extends State<ShowMemberInfo> {
                   'Gender:',
                 ),
                 Text(
-                  widget.membTo.gender.toString() == 'F' ? '여성':'남성' ,
+                  widget.membTo.gender.toString() == 'F' ? 'Female':'Male' ,
                 ),
               ],
             ),

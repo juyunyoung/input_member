@@ -28,6 +28,7 @@ class _MemberInfoInputState extends State<MemberInfoInput> {
     memberto.addr = myAddressController.text;
     memberto.gender = selectedGenderText;
     InfoTo.allUser.add(memberto);
+
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => ShowMemberInfo(membTo:memberto)),
@@ -77,7 +78,7 @@ class _MemberInfoInputState extends State<MemberInfoInput> {
                   ['NA','F','M'].map<DropdownMenuItem<String?>>((String? i){
                     return DropdownMenuItem<String?>(
                       value: i,
-                      child:Text({'F':'여성','M':'남성'}[i] ?? 'NA' ),
+                      child:Text({'F':'Female','M':'Male'}[i] ?? 'NA' ),
                     );
                   }).toList(),
                 )
